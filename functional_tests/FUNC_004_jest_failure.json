@@ -1,0 +1,16 @@
+{
+  "action": "completed",
+  "workflow_run": {
+    "id": 1004,
+    "head_sha": "abc004",
+    "conclusion": "failure",
+    "head_branch": "main",
+    "name": "Test",
+    "repository": {
+      "id": 111,
+      "name": "repo",
+      "full_name": "user/repo"
+    }
+  },
+  "_mock_log_content": "FAIL src/components/Button.test.tsx\n  ✕ renders correctly (15 ms)\n\n  ● renders correctly\n\n    expect(received).toBe(expected) // Object.is equality\n\n    Expected: \"Submit\"\n    Received: \"Click me\""
+}

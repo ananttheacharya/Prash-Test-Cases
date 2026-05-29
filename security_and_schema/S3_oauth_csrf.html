@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OAuth CSRF Test (No State Parameter)</title>
+</head>
+<body>
+    <h2>[S3] OAuth CSRF Vulnerability Test</h2>
+    <p>
+        The backend <code>/auth/github/login</code> endpoint redirects to GitHub but <b>does not include a state parameter</b>. <br>
+        This allows an attacker to initiate the OAuth flow themselves, stop before the redirect back to Drufiy, 
+        and trick a victim into completing the flow. The victim's browser will be authenticated as the attacker.
+    </p>
+
+    <!-- The attacker crafts a link like this: -->
+    <!-- Assuming the attacker got this code from their own GitHub auth attempt -->
+    <a href="http://localhost:8000/auth/github/callback?code=ATTACKERS_OAUTH_CODE">
+        Click here to claim your prize! (Victim clicks this)
+    </a>
+
+    <p>
+        Because the backend doesn't check a <code>state</code> cookie/session against the callback, 
+        it blindly accepts <code>ATTACKERS_OAUTH_CODE</code> and logs the victim in as the attacker.
+    </p>
+</body>
+</html>

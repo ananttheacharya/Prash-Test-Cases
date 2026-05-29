@@ -1,0 +1,16 @@
+{
+  "action": "completed",
+  "workflow_run": {
+    "id": 1005,
+    "head_sha": "abc005",
+    "conclusion": "failure",
+    "head_branch": "main",
+    "name": "Build",
+    "repository": {
+      "id": 111,
+      "name": "repo",
+      "full_name": "user/repo"
+    }
+  },
+  "_mock_log_content": "npm ERR! code ENOSPC\nnpm ERR! syscall write\nnpm ERR! errno -28\nnpm ERR! Error: ENOSPC: no space left on device, write"
+}

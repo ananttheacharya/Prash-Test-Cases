@@ -1,0 +1,16 @@
+{
+  "action": "completed",
+  "workflow_run": {
+    "id": 1018,
+    "head_sha": "abc018",
+    "conclusion": "failure",
+    "head_branch": "main",
+    "name": "Build",
+    "repository": {
+      "id": 111,
+      "name": "repo",
+      "full_name": "user/repo"
+    }
+  },
+  "_mock_log_content": "C:\\runner\\_work\\script.ps1: line 5: bash: command not found\nError: Process completed with exit code 1."
+}

@@ -1,0 +1,15 @@
+{
+  "_comment": "[E10] LLM generates a patch instead of new_content",
+  "problem_summary": "The test failed due to a typo in the assert statement.",
+  "root_cause": "Typo in assert",
+  "fix_description": "Fix the typo",
+  "fix_type": "safe_auto_apply",
+  "confidence": 0.95,
+  "files_changed": [
+    {
+      "path": "tests/test_main.py",
+      "explanation": "Replacing 'assert False' with 'assert True'",
+      "patch": "@@ -10,3 +10,3 @@\n def test_something():\n-    assert False\n+    assert True\n"
+    }
+  ]
+}

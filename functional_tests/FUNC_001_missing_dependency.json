@@ -1,0 +1,16 @@
+{
+  "action": "completed",
+  "workflow_run": {
+    "id": 1001,
+    "head_sha": "abc001",
+    "conclusion": "failure",
+    "head_branch": "main",
+    "name": "Build",
+    "repository": {
+      "id": 111,
+      "name": "repo",
+      "full_name": "user/repo"
+    }
+  },
+  "_mock_log_content": "Error: Cannot find module 'lodash'\nRequire stack:\n- /app/index.js"
+}

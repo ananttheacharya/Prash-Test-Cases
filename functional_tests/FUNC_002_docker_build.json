@@ -1,0 +1,16 @@
+{
+  "action": "completed",
+  "workflow_run": {
+    "id": 1002,
+    "head_sha": "abc002",
+    "conclusion": "failure",
+    "head_branch": "main",
+    "name": "Docker",
+    "repository": {
+      "id": 111,
+      "name": "repo",
+      "full_name": "user/repo"
+    }
+  },
+  "_mock_log_content": "Step 4/10 : COPY package.json .\nCOPY failed: file not found in build context or excluded by .dockerignore: stat package.json: file does not exist"
+}
