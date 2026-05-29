@@ -1,1 +1,2 @@
-console.log('Func001 executed successfully');
+const lodash = require('lodash');
+console.log('test');
