@@ -1,0 +1,5 @@
+Timestamp,Test_ID,Category,Target,Status,Details
+2026-05-29 22:31:44,S4_B9,Security,/add-secret,ERROR,All connection attempts failed
+2026-05-29 22:31:47,S7,Security,/webhook/github,ERROR,All connection attempts failed
+2026-05-29 22:31:49,S8_S9,Security,CORS/Leaks,ERROR,All connection attempts failed
+2026-05-29 22:32:07,FUNC_001,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
