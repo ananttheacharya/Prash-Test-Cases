@@ -1,0 +1,8 @@
+name: Func001
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: node src/func_001.js
