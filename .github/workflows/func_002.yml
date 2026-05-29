@@ -1,0 +1,8 @@
+name: Func002
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: docker build -t test -f src/Dockerfile .
