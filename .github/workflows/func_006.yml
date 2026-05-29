@@ -1,0 +1,8 @@
+name: Func006
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python src/func_006.py
