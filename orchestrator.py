@@ -11,6 +11,7 @@ from suites.stress_tester import StressTester
 async def main():
     parser = argparse.ArgumentParser(description="Prash Master Orchestrator")
     parser.add_argument("--suite", choices=["all", "security", "functional", "stress"], required=True, help="Which suite to run")
+    parser.add_argument("--start-from", type=str, default=None, help="Which test ID to start from (e.g., FUNC_003)")
     args = parser.parse_args()
 
     # Load Prod Env
@@ -34,7 +35,7 @@ async def main():
 
     if args.suite in ["functional", "all"]:
         gh_tester = GitHubTester(pat, repo, logger)
-        await gh_tester.run_functional_suite()
+        await gh_tester.run_functional_suite(start_from=args.start_from)
 
     if args.suite in ["stress", "all"]:
         stress = StressTester(pat, repo, logger)
