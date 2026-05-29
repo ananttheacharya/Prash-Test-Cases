@@ -1,70 +1,78 @@
-Timestamp,Test_ID,Category,Target,Status,Details
-2026-05-29 22:31:44,S4_B9,Security,/add-secret,ERROR,All connection attempts failed
-2026-05-29 22:31:47,S7,Security,/webhook/github,ERROR,All connection attempts failed
-2026-05-29 22:31:49,S8_S9,Security,CORS/Leaks,ERROR,All connection attempts failed
-2026-05-29 22:32:07,FUNC_001,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:32:58,S4_B9,Security,/add-secret,ERROR,All connection attempts failed
-2026-05-29 22:33:00,S7,Security,/webhook/github,ERROR,All connection attempts failed
-2026-05-29 22:33:02,S8_S9,Security,CORS/Leaks,ERROR,All connection attempts failed
-2026-05-29 22:34:30,FUNC_001,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:31,FUNC_002,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:32,FUNC_003,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:33,FUNC_004,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:33,FUNC_006,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:34,FUNC_016,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:35,FUNC_018,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:34:36,FUNC_019,Functional,GitHub API,ERROR,"Failed to create branch: {""message"":""Resource not accessible by personal access token"",""documentation_url"":""https://docs.github.com/rest/git/refs#create-a-reference"",""status"":""403""}"
-2026-05-29 22:37:27,FUNC_001,Functional,test/func_001_1780074446,INFO,Branch created successfully.
-2026-05-29 22:37:30,FUNC_001,Functional,test/func_001_1780074446,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 22:37:30,FUNC_001,Functional,test/func_001_1780074446,INFO,Waiting for Prash to open a fix PR...
-2026-05-29 22:40:43,FUNC_001,Functional,Prash PR,FAIL,Prash did not open a PR within 3 minutes.
-2026-05-29 22:40:44,FUNC_002,Functional,test/func_002_1780074643,INFO,Branch created successfully.
-2026-05-29 22:40:46,FUNC_002,Functional,test/func_002_1780074643,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 22:40:46,FUNC_002,Functional,test/func_002_1780074643,INFO,Waiting for Prash to open a fix PR...
-2026-05-29 22:45:00,FUNC_001,Functional,Prash PR,PASS,"Prash successfully diagnosed missing lodash module and added `npm install lodash` step to the workflow."
-2026-05-29 22:47:49,FUNC_002,Functional,test/func_002_1780075068,INFO,Branch created successfully.
-2026-05-29 22:47:51,FUNC_002,Functional,test/func_002_1780075068,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 22:47:51,FUNC_002,Functional,test/func_002_1780075068,INFO,Waiting for Prash to open a fix PR (up to 10 mins)...
-2026-05-29 22:52:00,FUNC_001,Functional,Prash AI Analysis,FAIL,"LLM Hallucinated on Iteration 2. Misread MODULE_NOT_FOUND error as a missing source file instead of missing package and incorrectly overwrote source code with a dummy file."
-2026-05-29 22:54:35,FUNC_002,Functional,test/func_002_1780075473,INFO,Branch created successfully.
-2026-05-29 22:54:37,FUNC_002,Functional,test/func_002_1780075473,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 22:54:37,FUNC_002,Functional,test/func_002_1780075473,INFO,Waiting for Prash to open a fix PR (up to 10 mins)...
-2026-05-29 22:58:53,FUNC_002,Functional,test/func_002_1780075732,INFO,Branch created successfully.
-2026-05-29 22:58:55,FUNC_002,Functional,test/func_002_1780075732,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 22:58:55,FUNC_002,Functional,test/func_002_1780075732,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 22:59:22,FUNC_002,Functional,test/func_002_1780075761,INFO,Branch created successfully.
-2026-05-29 22:59:24,FUNC_002,Functional,test/func_002_1780075761,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 22:59:24,FUNC_002,Functional,test/func_002_1780075761,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:01:01,FUNC_003,Functional,test/func_003_1780075859,INFO,Branch created successfully.
-2026-05-29 23:01:03,FUNC_003,Functional,test/func_003_1780075859,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:01:03,FUNC_003,Functional,test/func_003_1780075859,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:01:25,FUNC_003,Functional,GitHub CI,PASS,GitHub Action correctly failed.
-2026-05-29 23:01:25,FUNC_003,Functional,test/func_003_1780075859,INFO,CI failed. Waiting up to 8 mins for Prash PR (Ctrl+C to skip)...
-2026-05-29 23:02:23,FUNC_004,Functional,test/func_004_1780075941,INFO,Branch created successfully.
-2026-05-29 23:02:25,FUNC_004,Functional,test/func_004_1780075941,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:02:25,FUNC_004,Functional,test/func_004_1780075941,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:02:47,FUNC_004,Functional,GitHub CI,FAIL,GitHub Action passed unexpectedly!
-2026-05-29 23:02:48,FUNC_006,Functional,test/func_006_1780075967,INFO,Branch created successfully.
-2026-05-29 23:02:50,FUNC_006,Functional,test/func_006_1780075967,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:02:50,FUNC_006,Functional,test/func_006_1780075967,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:03:02,FUNC_006,Functional,GitHub CI,PASS,GitHub Action correctly failed.
-2026-05-29 23:03:02,FUNC_006,Functional,test/func_006_1780075967,INFO,CI failed. Waiting up to 8 mins for Prash PR (Ctrl+C to skip)...
-2026-05-29 23:03:18,FUNC_001,Functional,test/func_001_1780075996,INFO,Branch created successfully.
-2026-05-29 23:03:18,FUNC_001,Functional,Execution,ERROR,"Failed to commit src/func_001.js: {""message"":""Invalid request.\n\n\""sha\"" wasn't supplied."",""documentation_url"":""https://docs.github.com/rest/repos/contents#create-or-update-file-contents"",""status"":""422""}"
-2026-05-29 23:03:19,FUNC_002,Functional,test/func_002_1780075998,INFO,Branch created successfully.
-2026-05-29 23:03:21,FUNC_002,Functional,test/func_002_1780075998,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:03:21,FUNC_002,Functional,test/func_002_1780075998,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:05:28,FUNC_001,Functional,test/func_001_1780076127,INFO,Branch created successfully.
-2026-05-29 23:05:31,FUNC_001,Functional,test/func_001_1780076127,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:05:31,FUNC_001,Functional,test/func_001_1780076127,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:05:53,FUNC_001,Functional,GitHub CI,FAIL,GitHub Action passed unexpectedly!
-2026-05-29 23:05:54,FUNC_002,Functional,test/func_002_1780076153,INFO,Branch created successfully.
-2026-05-29 23:05:57,FUNC_002,Functional,test/func_002_1780076153,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:05:57,FUNC_002,Functional,test/func_002_1780076153,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:06:09,FUNC_002,Functional,GitHub CI,PASS,GitHub Action correctly failed.
-2026-05-29 23:06:09,FUNC_002,Functional,test/func_002_1780076153,INFO,CI failed. Waiting up to 8 mins for Prash PR (Ctrl+C to skip)...
-2026-05-29 23:07:45,FUNC_001,Functional,test/func_001_1780076263,INFO,Branch created successfully.
-2026-05-29 23:07:47,FUNC_001,Functional,test/func_001_1780076263,INFO,Broken code and workflow pushed. CI will now fail.
-2026-05-29 23:07:47,FUNC_001,Functional,test/func_001_1780076263,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
-2026-05-29 23:07:59,FUNC_001,Functional,GitHub CI,PASS,GitHub Action correctly failed.
-2026-05-29 23:07:59,FUNC_001,Functional,test/func_001_1780076263,INFO,CI failed. Waiting up to 8 mins for Prash PR (Ctrl+C to skip)...
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+5/29/2026 22:37,FUNC_001,Functional,test/func_001_1780074446,INFO,Branch created successfully.
+5/29/2026 22:37,FUNC_001,Functional,test/func_001_1780074446,INFO,Broken code and workflow pushed. CI will now fail.
+5/29/2026 22:37,FUNC_001,Functional,test/func_001_1780074446,INFO,Waiting for Prash to open a fix PR...
+5/29/2026 22:40,FUNC_001,Functional,Prash PR,FAIL,Prash did not open a PR within 3 minutes.
+5/29/2026 22:40,FUNC_002,Functional,test/func_002_1780074643,INFO,Branch created successfully.
+5/29/2026 22:40,FUNC_002,Functional,test/func_002_1780074643,INFO,Broken code and workflow pushed. CI will now fail.
+5/29/2026 22:40,FUNC_002,Functional,test/func_002_1780074643,INFO,Waiting for Prash to open a fix PR...
+5/29/2026 22:45,FUNC_001,Functional,Prash PR,PASS,Prash successfully diagnosed missing lodash module and added `npm install lodash` step to the workflow.
+5/29/2026 22:47,FUNC_002,Functional,test/func_002_1780075068,INFO,Branch created successfully.
+5/29/2026 22:47,FUNC_002,Functional,test/func_002_1780075068,INFO,Broken code and workflow pushed. CI will now fail.
+5/29/2026 22:47,FUNC_002,Functional,test/func_002_1780075068,INFO,Waiting for Prash to open a fix PR (up to 10 mins)...
+5/29/2026 22:52,FUNC_001,Functional,Prash AI Analysis,FAIL,LLM Hallucinated on Iteration 2. Misread MODULE_NOT_FOUND error as a missing source file instead of missing package and incorrectly overwrote source code with a dummy file.
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+2026-05-30 02:50:41,FUNC_002,Functional,test/func_002_1780089640,INFO,Branch created successfully.
+2026-05-30 02:50:44,FUNC_002,Functional,test/func_002_1780089640,INFO,Broken code and workflow pushed. CI will now fail.
+2026-05-30 02:50:44,FUNC_002,Functional,test/func_002_1780089640,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
+2026-05-30 02:51:05,FUNC_002,Functional,GitHub CI,PASS,GitHub Action correctly failed.
+2026-05-30 02:51:05,FUNC_002,Functional,test/func_002_1780089640,INFO,CI failed. Waiting up to 8 mins for Prash PR (Ctrl+C to skip)...
+2026-05-30 02:52:00,FUNC_002,Functional,Prash AI Analysis,PASS,"Prash correctly identified that non_existent_file.txt was missing and proposed creating a placeholder file to fix the Docker build."
+2026-05-30 02:54:16,FUNC_002,Functional,test/func_002_1780089855,INFO,Branch created successfully.
+2026-05-30 02:54:18,FUNC_002,Functional,test/func_002_1780089855,INFO,Broken code and workflow pushed. CI will now fail.
+2026-05-30 02:54:18,FUNC_002,Functional,test/func_002_1780089855,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
