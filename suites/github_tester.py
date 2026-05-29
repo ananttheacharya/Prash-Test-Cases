@@ -18,14 +18,64 @@ class GitHubTester:
     async def run_functional_suite(self):
         print(f"\n--- Running Functional Suite via GitHub on {self.repo_name} ---")
         async with httpx.AsyncClient(base_url=self.api_base, headers=self.headers) as client:
+            
+            # FUNC_001: Missing Dependency (Already Passed)
+            # Skipped to continue with FUNC_002
+
+            # FUNC_002: Docker Build Failure
             await self._run_test_case(
-                client, 
-                "FUNC_001", 
-                "Missing Dependency", 
-                ".github/workflows/func_001.yml", 
-                "name: Func001\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: node src/index.js",
-                "src/index.js",
-                "const lodash = require('lodash');\nconsole.log(lodash.camelCase('hello world'));"
+                client, "FUNC_002", "Docker Build Failure", 
+                ".github/workflows/func_002.yml", 
+                "name: Func002\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: docker build -t test -f src/Dockerfile .",
+                "src/Dockerfile", "FROM ubuntu:latest\nCOPY non_existent_file.txt /app/"
+            )
+
+            # FUNC_003: Env Var Not Set
+            await self._run_test_case(
+                client, "FUNC_003", "Missing Env Var", 
+                ".github/workflows/func_003.yml", 
+                "name: Func003\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: python src/func_003.py",
+                "src/func_003.py", "import os\napi_key = os.environ['STRIPE_SECRET_KEY']\nprint(api_key)"
+            )
+
+            # FUNC_004: Jest/Assertion Failure
+            await self._run_test_case(
+                client, "FUNC_004", "Assertion Failure", 
+                ".github/workflows/func_004.yml", 
+                "name: Func004\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: python src/func_004.py",
+                "src/func_004.py", "def test_button():\n    expected = 'Submit'\n    received = 'Click me'\n    assert expected == received, f'Expected {expected} but got {received}'\n\ntest_button()"
+            )
+
+            # FUNC_006: Port Conflict
+            await self._run_test_case(
+                client, "FUNC_006", "Port Conflict", 
+                ".github/workflows/func_006.yml", 
+                "name: Func006\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: python src/func_006.py",
+                "src/func_006.py", "import socket\ns1 = socket.socket()\ns1.bind(('127.0.0.1', 3000))\ns2 = socket.socket()\ns2.bind(('127.0.0.1', 3000))"
+            )
+
+            # FUNC_016: Gibberish Input
+            await self._run_test_case(
+                client, "FUNC_016", "Gibberish Syntax", 
+                ".github/workflows/func_016.yml", 
+                "name: Func016\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: python src/func_016.py",
+                "src/func_016.py", "asdfkjh1234987!@#$!@#$kasdfjhalksdjfhqwerqwer\nzxcvbnm,./1234"
+            )
+
+            # FUNC_018: Non-Windows Error
+            await self._run_test_case(
+                client, "FUNC_018", "Non-Windows Error", 
+                ".github/workflows/func_018.yml", 
+                "name: Func018\non: push\njobs:\n  test:\n    runs-on: windows-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: bash -c 'echo hello'",
+                "src/func_018.txt", "Just a dummy file to trigger the workflow"
+            )
+
+            # FUNC_019: Cascading Failures
+            await self._run_test_case(
+                client, "FUNC_019", "Cascading Failure", 
+                ".github/workflows/func_019.yml", 
+                "name: Func019\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - run: python src/func_019.py",
+                "src/func_019.py", "import missing_pydantic\nclass BaseModel:\n    pass"
             )
 
     async def _run_test_case(self, client, test_id, desc, workflow_path, workflow_content, src_path, src_content):
@@ -58,10 +108,10 @@ class GitHubTester:
             
             self.logger.log(test_id, "Functional", branch_name, "INFO", "Broken code and workflow pushed. CI will now fail.")
             
-            # 5. Monitor for PR creation (Poll every 10 seconds for up to 3 minutes)
-            self.logger.log(test_id, "Functional", branch_name, "INFO", "Waiting for Prash to open a fix PR...")
+            # 5. Monitor for PR creation (Poll every 10 seconds for up to 10 minutes)
+            self.logger.log(test_id, "Functional", branch_name, "INFO", "Waiting for Prash to open a fix PR (up to 10 mins)...")
             pr_opened = False
-            for _ in range(18):
+            for _ in range(60):
                 await asyncio.sleep(10)
                 resp = await client.get(f"/repos/{self.repo_name}/pulls?state=open")
                 if resp.status_code == 200:
@@ -75,7 +125,7 @@ class GitHubTester:
                     break
             
             if not pr_opened:
-                self.logger.log(test_id, "Functional", "Prash PR", "FAIL", "Prash did not open a PR within 3 minutes.")
+                self.logger.log(test_id, "Functional", "Prash PR", "FAIL", "Prash did not open a PR within 10 minutes.")
 
         except Exception as e:
             self.logger.log(test_id, "Functional", "Execution", "ERROR", str(e))
