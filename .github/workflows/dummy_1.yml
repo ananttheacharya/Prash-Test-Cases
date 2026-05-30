@@ -1,0 +1,7 @@
+name: Dummy1
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 1
