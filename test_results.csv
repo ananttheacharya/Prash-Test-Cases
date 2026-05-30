@@ -76,3 +76,19 @@
 2026-05-30 02:54:16,FUNC_002,Functional,test/func_002_1780089855,INFO,Branch created successfully.
 2026-05-30 02:54:18,FUNC_002,Functional,test/func_002_1780089855,INFO,Broken code and workflow pushed. CI will now fail.
 2026-05-30 02:54:18,FUNC_002,Functional,test/func_002_1780089855,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
+2026-05-30 02:54:52,FUNC_002,Functional,test/func_002_1780089891,INFO,Branch created successfully.
+2026-05-30 02:54:55,FUNC_002,Functional,test/func_002_1780089891,INFO,Broken code and workflow pushed. CI will now fail.
+2026-05-30 02:54:55,FUNC_002,Functional,test/func_002_1780089891,INFO,Waiting for GitHub Action to fail and Prash to respond (Press Ctrl+C to skip this test)...
+2026-05-30 02:55:16,FUNC_002,Functional,GitHub CI,PASS,GitHub Action correctly failed.
+2026-05-30 02:55:16,FUNC_002,Functional,test/func_002_1780089891,INFO,CI failed. Waiting up to 8 mins for Prash PR (Ctrl+C to skip)...
+2026-05-30 03:00:17,S4_B9,Security,/add-secret,ERROR,All connection attempts failed
+2026-05-30 03:00:19,S7,Security,/webhook/github,ERROR,All connection attempts failed
+2026-05-30 03:00:22,S8_S9,Security,CORS/Leaks,ERROR,All connection attempts failed
+2026-05-30 03:05:00,FUNC_002,Functional,Prash AI Analysis,PARTIAL,"LLM hallucinated the wrong path (src/) for the COPY command, BUT the Sanity Reviewer perfectly caught the Docker build context discrepancy and correctly downgraded the fix to review_recommended."
+2026-05-30 15:38:33,E8_Stress,Stress,test/e8_1780135711,INFO,Branch created. Uploading 6 workflow files...
+2026-05-30 15:38:38,E8_Stress,Stress,GitHub API,PASS,6 workflows pushed. Monitoring Prash response...
+2026-05-30 15:39:53,E8_Stress,Stress,Prash AI Analysis,FALSE_POSITIVE,"Prash diagnosed dummy_5.yml 'exit 1' as the root cause (99% confidence) and suggested changing to 'exit 0'. INCORRECT — 'exit 1' is intentional fault injection. E8 tests whether Prash handles >5 workflows (fetch limit = 5). Prash cannot distinguish test stimuli from real bugs."
+2026-05-30 15:39:53,E8_Stress,Stress,Prash AI Analysis,INFO,"Diagnosis correctly identified WHAT failed but misunderstood WHY. Suggested fix would defeat the test purpose. Classified as manual_required + environment category — should be 'code' category if anything."
+2026-05-30 15:41:24,E8_Stress,Stress,Prash Rediagnose,INFO,"Re-triggered diagnosis for iteration 2."
+2026-05-30 15:43:53,E8_Stress,Stress,Prash AI Analysis (Iter 2),FALSE_POSITIVE,"Identical diagnosis repeated: 'exit 1 → exit 0' with 98% confidence (was 99% iter 1). Same environment misclassification + manual_required. Confirms Prash deterministically cannot distinguish intentional fault injection from real bugs."
+2026-05-30 15:43:53,E8_Stress,Stress,E8 Verdict,FAIL,"Prash failed the E8 stress test. Two issues found: (1) Prash only fetches 5 workflows but 6 exist — does not surface the fetch-limit gap. (2) Misclassifies deliberate 'exit 1' as an environment/secrets issue instead of recognizing it as an unfixable code-level failure. No valid secret exists to add."
